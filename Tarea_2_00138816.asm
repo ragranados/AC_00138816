@@ -46,6 +46,8 @@ mov [20Bh], cl
 mov cl, "O"
 mov [20Ch], cl
 
+;ejercicio 2
+
         mov     ax, 0000h
         mov     al, 2d
         mov     bx, 210h
@@ -60,5 +62,24 @@ pos:    add     bx, 2h
 pre:    add     bx, 1h
 sig:    cmp     bx, 21Fh
         jb      mult
+
+;ejercicio 3
+
+        mov     ax, 0000h
+        mov     cx, 0h
+        mov     [220h], ax
+        mov     ax, 1h
+        mov     [221h],ax 
+        mov     bx, 221h
+
+lupi:   add     bx, 1h     
+        mov     dx, 0000h
+        mov     [bx], dx
+        add     [bx], cx
+        add     [bx], ax
+        mov     cx, ax
+        mov     ax, [bx]
+        cmp     bx, 22Eh
+        jne     lupi
 
 int 20h
