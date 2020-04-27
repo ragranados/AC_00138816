@@ -46,4 +46,19 @@ mov [20Bh], cl
 mov cl, "O"
 mov [20Ch], cl
 
+        mov     ax, 0000h
+        mov     al, 2d
+        mov     bx, 210h
+        mov     cx, 2d
+mult:   mul     cx
+        mov     [bx], ax
+        cmp     ah, 00h
+        ja      pos
+        je      pre
+pos:    add     bx, 2h
+        jmp     sig
+pre:    add     bx, 1h
+sig:    cmp     bx, 21Fh
+        jb      mult
+
 int 20h
