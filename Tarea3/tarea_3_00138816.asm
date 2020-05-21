@@ -97,6 +97,6 @@ len 	equ	$-msg+16d
 msg2	db 	"Butter the biscuit"
 len2 	equ	$-msg2+35d
 
-msg3	db 	"Para mas frases, youtube.com/watch?v=OORoOGY8D2M"
+msg3	db 	"Para mas frases, youtube.com/watch?v=OORoOGY8D2M" ;es una cancion XD
 len3 	equ	$-msg3+3d
 
