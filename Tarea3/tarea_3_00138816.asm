@@ -6,6 +6,7 @@ section .text
 	call 	cursor
 	call 	phrase
     call    phrase2
+    call    phrase3
 	call	kbwait
 
 	int 	20h
@@ -71,6 +72,23 @@ lupi2:	mov 	cl, [msg2+di-35d]
 	jb	lupi2
 	ret
 
+;3
+
+m_cursr3:mov 	ah, 02h
+	mov 	dx, di  ; columna
+	mov 	dh, 15d ; fila
+	mov 	bh, 0h
+	int 	10h
+	ret
+
+phrase3:	mov 	di, 3d
+lupi3:	mov 	cl, [msg3+di-3d]
+	call    m_cursr3
+	call 	w_char
+	inc	di
+	cmp 	di, len3
+	jb	lupi3
+	ret
 
 section .data
 msg	    db 	"Stuff the taco"
@@ -78,4 +96,7 @@ len 	equ	$-msg+16d
 
 msg2	db 	"Butter the biscuit"
 len2 	equ	$-msg2+35d
+
+msg3	db 	"Para mas frases, youtube.com/watch?v=OORoOGY8D2M"
+len3 	equ	$-msg3+3d
 
